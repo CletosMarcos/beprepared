@@ -6,21 +6,22 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "provincias")
-public class Province {
+@Table(name = "tb_citizens")
+public class Citizen {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String designation;
+    private String phone;
+    private String deviceId;
+    private boolean verified;
 
-    @OneToMany(mappedBy = "province")
-    private List<City> cities;
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
 }

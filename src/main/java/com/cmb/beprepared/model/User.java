@@ -6,21 +6,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "provincias")
-public class Province {
+@Table(name = "tb_users")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String designation;
-
-    @OneToMany(mappedBy = "province")
-    private List<City> cities;
+    private String name;
+    private String email;
+    private String password;
 }
