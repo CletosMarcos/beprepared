@@ -1,2 +1,7 @@
-package com.cmb.beprepared.exception;public class EntityNotFoundException {
+package com.cmb.beprepared.exception;
+
+public class EntityNotFoundException extends BadRequestException{
+    public EntityNotFoundException(String message) {
+        super(message);
+    }
 }
