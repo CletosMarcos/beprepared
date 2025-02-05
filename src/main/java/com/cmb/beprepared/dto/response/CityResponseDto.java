@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class CityResponseDto {
     private Long id;
-    private Long designation;
+    private String designation;
 }

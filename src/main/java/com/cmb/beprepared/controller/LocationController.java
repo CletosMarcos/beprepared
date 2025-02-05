@@ -20,9 +20,7 @@ import java.util.List;
 @RequestMapping("/api/v1/locations")
 public class LocationController {
 
-    @Autowired
     private final Mapper mapper;
-    @Autowired
     private final LocationService locationService;
 
     @GetMapping("/provinces")
