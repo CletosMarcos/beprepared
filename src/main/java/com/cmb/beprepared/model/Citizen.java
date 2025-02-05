@@ -17,6 +17,7 @@ public class Citizen {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true, length = 9)
     private String phone;
     private String deviceId;
     private boolean verified;
