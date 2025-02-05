@@ -45,9 +45,9 @@ public class LocationController {
     }
 
     @GetMapping("/cities/{provinceId}")
-    public ResponseEntity<List<CityResponseDto>> getCityById(@PathVariable Long id) {
+    public ResponseEntity<List<CityResponseDto>> getCityById(@PathVariable Long provinceId) {
         return ResponseEntity.ok(mapper.mapCityToResponseDtoList(
-                locationService.getAllCitiesProvinceId(id)
+                locationService.getAllCitiesProvinceId(provinceId)
         ));
     }
 
