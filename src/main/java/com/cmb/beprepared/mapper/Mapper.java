@@ -61,7 +61,7 @@ public class Mapper {
                 .build();
     }
 
-    public List<AlertResponseDto> mapAlertResponseToDtoList(List<Alert> alerts) {
+    public List<AlertResponseDto> mapAlertToResponseDtoList(List<Alert> alerts) {
         return alerts.stream().map(this::mapAlertToResponseDto)
                 .collect(Collectors.toList());
     }

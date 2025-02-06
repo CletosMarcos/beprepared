@@ -9,6 +9,7 @@ import com.cmb.beprepared.service.AlertService;
 import com.cmb.beprepared.service.LocationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ public class AlertServiceImpl implements AlertService {
     private final AlertRepository alertRepository;
     private final LocationService locationService;
     @Override
+    @Transactional
     public String createAlert(Alert alert, Long cityId, Long provinceId) {
         City city = locationService.getCityById(cityId);
         Province province = locationService.getProvinceById(provinceId);
