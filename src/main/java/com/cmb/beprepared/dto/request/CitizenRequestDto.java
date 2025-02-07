@@ -7,5 +7,5 @@ public class CitizenRequestDto {
 
     private String phone;
     private String deviceId;
-    private String cityId;
+    private Long cityId;
 }
