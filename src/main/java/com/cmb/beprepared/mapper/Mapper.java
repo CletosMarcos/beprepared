@@ -1,12 +1,10 @@
 package com.cmb.beprepared.mapper;
 
 import com.cmb.beprepared.dto.request.AlertRequestDto;
-import com.cmb.beprepared.dto.response.AlertResponseDto;
-import com.cmb.beprepared.dto.response.CityResponseDto;
-import com.cmb.beprepared.dto.response.ProvinceResponseDto;
-import com.cmb.beprepared.model.Alert;
-import com.cmb.beprepared.model.City;
-import com.cmb.beprepared.model.Province;
+import com.cmb.beprepared.dto.request.CitizenRequestDto;
+import com.cmb.beprepared.dto.request.UserRequestDto;
+import com.cmb.beprepared.dto.response.*;
+import com.cmb.beprepared.model.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -63,6 +61,35 @@ public class Mapper {
 
     public List<AlertResponseDto> mapAlertToResponseDtoList(List<Alert> alerts) {
         return alerts.stream().map(this::mapAlertToResponseDto)
+                .collect(Collectors.toList());
+    }
+
+    public User mapUserRequestToModel(UserRequestDto userRequestDto) {
+        return modelMapper.map(userRequestDto, User.class);
+    }
+
+    public UserResponseDto mapUserToResponseDto(User user) {
+        return modelMapper.map(user, UserResponseDto.class);
+    }
+
+    public Citizen mapCitizenRequestToModel(CitizenRequestDto citizenRequestDto) {
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        return modelMapper.map(citizenRequestDto, Citizen.class)
+    }
+
+    public CitizenResponseDto mapCitizenToResponseDto(Citizen citizen) {
+        return CitizenResponseDto.builder()
+                .id(citizen.getId())
+                .phone(citizen.getPhone())
+                .deviceId(citizen.getDeviceId())
+                .verified(citizen.isVerified())
+                .city(citizen.getCity().getDesignation())
+                .province(citizen.getCity().getProvince().getDesignation())
+                .build();
+    }
+
+    public List<CitizenResponseDto> mapCitizenToResponseDtoList(List<Citizen> citizens) {
+        return citizens.stream().map(this::mapCitizenToResponseDto)
                 .collect(Collectors.toList());
     }
 }

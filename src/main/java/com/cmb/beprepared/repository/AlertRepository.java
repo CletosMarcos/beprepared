@@ -15,4 +15,6 @@ public interface AlertRepository extends JpaRepository <Alert, Long> {
 
     List<Alert> findAllByActiveAndProvinceId(boolean isActive, Long provinceId);
 
+    long countByActive(boolean isActive);
+
 }
