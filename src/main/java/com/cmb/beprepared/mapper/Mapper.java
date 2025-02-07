@@ -74,7 +74,7 @@ public class Mapper {
 
     public Citizen mapCitizenRequestToModel(CitizenRequestDto citizenRequestDto) {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        return modelMapper.map(citizenRequestDto, Citizen.class)
+        return modelMapper.map(citizenRequestDto, Citizen.class);
     }
 
     public CitizenResponseDto mapCitizenToResponseDto(Citizen citizen) {
