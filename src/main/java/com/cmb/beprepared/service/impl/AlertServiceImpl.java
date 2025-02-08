@@ -42,7 +42,7 @@ public class AlertServiceImpl implements AlertService {
     }
 
     @Override
-    public List<Alert> getAllAlertsByCityId(Long cityId) {
+    public List<Alert> getAllActiveAlertsByCityId(Long cityId) {
         return alertRepository.findAllByActiveAndCityId(true, cityId);
     }
 

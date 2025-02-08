@@ -12,7 +12,7 @@ public interface AlertService {
 
     List<Alert> getAllActiveAlerts();
 
-    List<Alert> getAllAlertsByCityId(Long cityId);
+    List<Alert> getAllActiveAlertsByCityId(Long cityId);
 
     List<Alert> getAllActiveAlertsByProvinceId(Long provinceId);
 

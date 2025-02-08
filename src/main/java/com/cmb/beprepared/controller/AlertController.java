@@ -43,14 +43,14 @@ public class AlertController {
     }
 
     @GetMapping("/city")
-    public ResponseEntity<List<AlertResponseDto>> getAllAlertsByCity(@RequestParam Long cityId) {
+    public ResponseEntity<List<AlertResponseDto>> getAllActiveAlertsByCity(@RequestParam Long cityId) {
         return ResponseEntity.ok(mapper.mapAlertToResponseDtoList(
-                alertService.getAllAlertsByCityId(cityId)
+                alertService.getAllActiveAlertsByCityId(cityId)
         ));
     }
 
     @GetMapping("/province")
-    public ResponseEntity<List<AlertResponseDto>> getAllAlertsByProvince(@RequestParam Long provinceId) {
+    public ResponseEntity<List<AlertResponseDto>> getAllActiveAlertsByProvince(@RequestParam Long provinceId) {
         return ResponseEntity.ok(mapper.mapAlertToResponseDtoList(
                 alertService.getAllActiveAlertsByProvinceId(provinceId)
         ));
