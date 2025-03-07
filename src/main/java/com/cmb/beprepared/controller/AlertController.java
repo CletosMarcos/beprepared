@@ -4,6 +4,7 @@ import com.cmb.beprepared.dto.request.AlertRequestDto;
 import com.cmb.beprepared.dto.response.AlertResponseDto;
 import com.cmb.beprepared.mapper.Mapper;
 import com.cmb.beprepared.service.AlertService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,7 @@ public class AlertController {
     private final AlertService alertService;
 
     @PostMapping("/")
-    public ResponseEntity<String> createAlert(@RequestBody AlertRequestDto alertRequestDto) {
+    public ResponseEntity<String> createAlert(@Valid @RequestBody AlertRequestDto alertRequestDto) {
         return new ResponseEntity<>(alertService.createAlert(
                 mapper.mapAlertRequestToModel(alertRequestDto),
                 alertRequestDto.getCityId(),

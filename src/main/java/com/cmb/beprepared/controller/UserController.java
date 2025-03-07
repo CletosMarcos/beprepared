@@ -5,6 +5,7 @@ import com.cmb.beprepared.dto.response.StatsResponse;
 import com.cmb.beprepared.dto.response.UserResponseDto;
 import com.cmb.beprepared.mapper.Mapper;
 import com.cmb.beprepared.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/")
-    public ResponseEntity<String> createUser(@RequestBody UserRequestDto userRequestDto) {
+    public ResponseEntity<String> createUser(@Valid @RequestBody UserRequestDto userRequestDto) {
         return new ResponseEntity<>(userService.createUser(
                 mapper.mapUserRequestToModel(userRequestDto)),
                 HttpStatus.CREATED
